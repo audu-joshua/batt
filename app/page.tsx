@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { Battery, BatteryCharging, BatteryFull, ChevronRight, Settings, Zap } from "lucide-react"
+import { Battery, BatteryCharging, ChevronRight, Settings, Zap } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -128,8 +128,7 @@ export default function Home() {
       <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between py-4">
           <div className="flex items-center gap-2">
-            <BatteryFull className="h-6 w-6 text-amber-500" />
-            <span className="text-xl font-bold">Batt</span>
+          <img src="/batt.svg" alt="Loader Image" className="h-12 w-16" />
           </div>
           <nav className="hidden md:flex gap-6">
             <Link
@@ -189,8 +188,7 @@ export default function Home() {
         {showStartButton ? (
           <div className="flex flex-col items-center justify-center min-h-[80vh] px-4">
             <div className="text-center max-w-md mx-auto space-y-6">
-              <BatteryFull className="h-16 w-16 text-amber-500 mx-auto" />
-              <h1 className="text-3xl font-bold">Welcome to Batt</h1>
+              <img src="/batt.svg" alt="Loader Image" className="h-40 w-40 animate-pulse" />              <h1 className="text-3xl font-bold">Welcome to Batt</h1>
               <p className="text-muted-foreground">
                 Batt helps you monitor your battery health, optimize usage, and extend your device's battery life.
               </p>
@@ -205,12 +203,14 @@ export default function Home() {
           </div>
         ) : (
           <div className="container py-6 md:py-8">
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              <Card className="col-span-full">
+            <div className=" md:flex grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <Card className=" md:w-full col-span-full">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <div>
                     <CardTitle className="text-2xl font-bold">Battery Health</CardTitle>
-                    <CardDescription>Current status and health of your battery</CardDescription>
+                    <CardDescription className="hidden md:block">Current status and health of your battery</CardDescription>
+
+                    <CardDescription className="block md:hidden"> Battery Status</CardDescription>
                   </div>
                   <div className="flex items-center gap-2">
                     <BatteryCharging className="h-8 w-8 text-amber-500" />
@@ -250,7 +250,7 @@ export default function Home() {
                   </div>
                 </CardContent>
               </Card>
-              <div className="col-span-full">
+              <div className="col-span-full md:grid md:w-full md:items-center">
                 <RealTimeBatteryMonitor />
               </div>
             </div>

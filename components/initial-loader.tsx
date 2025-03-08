@@ -4,7 +4,7 @@ import { BatteryFull } from "lucide-react"
 
 export function InitialLoader() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-background">
+    <div className="flex min-h-screen overflow-hidden flex-col items-center justify-center bg-background">
       <div className="flex flex-col items-center justify-center gap-6 px-4 text-center">
         <div className="flex flex-col items-center gap-2">
           {/* Replace the BatteryFull icon with your image */}

@@ -80,7 +80,7 @@ export default function PrivacyPage() {
 
             <div className="space-y-4">
               <h3 className="text-xl font-semibold">Contact Us</h3>
-              <p>If you have any questions about this Privacy Policy, please contact us at privacy@battapp.com.</p>
+              <p>If you have any questions about this Privacy Policy, please contact us at <Link href="mailto:empire4josh@gmail.com" className="text-amber-500">empire4josh@gmail.com </Link></p>
             </div>
 
             <p className="text-sm text-muted-foreground">Last Updated: March 8, 2025</p>

@@ -62,7 +62,7 @@ export function DataCollectionLoader() {
     <div className="flex min-h-screen flex-col items-center justify-center bg-background">
       <div className="flex flex-col items-center justify-center gap-8 px-4 text-center max-w-md w-full">
         <div className="flex flex-col items-center gap-2">
-          {batteryIcon}
+          <img src="/batt.svg" alt="Loader Image" className="h-14 w-16 animate-pulse" />
           <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Batt</h1>
           <p className="text-muted-foreground">Analyzing Your Battery</p>
         </div>

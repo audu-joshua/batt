@@ -8,7 +8,7 @@ import os from "os"
 const execPromise = promisify(exec)
 
 // Detect the operating system
-function getOperatingSystem() {
+function getOperatingSystem(): string {
   const platform = process.platform
   if (platform === "win32") return "windows"
   if (platform === "darwin") return "macos"
@@ -189,33 +189,33 @@ async function getLinuxBatteryData() {
 }
 
 // Helper functions for parsing output
-function extractValueFromXml(xml, tag) {
+function extractValueFromXml(xml: string, tag: string): number {
   // Simplified XML parsing - in a real implementation, use a proper XML parser
   const regex = new RegExp(`<${tag}>(\\d+)</${tag}>`)
   const match = xml.match(regex)
   return match ? Number.parseInt(match[1], 10) : 0
 }
 
-function extractValueFromIoreg(output, key) {
+function extractValueFromIoreg(output: string, key: string): number {
   const regex = new RegExp(`"${key}" = (\\d+)`)
   const match = output.match(regex)
   return match ? Number.parseInt(match[1], 10) : 0
 }
 
-function extractValueFromUpower(output, key) {
+function extractValueFromUpower(output: string, key: string): number {
   const regex = new RegExp(`${key}\\s+(\\d+(\\.\\d+)?)`)
   const match = output.match(regex)
   return match ? Number.parseFloat(match[1]) : 0
 }
 
-function extractPowerUsage(output) {
+function extractPowerUsage(output: string): number {
   // Simplified parsing for power usage
   const regex = /Instant power draw: (\d+) mW/
   const match = output.match(regex)
   return match ? Number.parseInt(match[1], 10) / 1000 : 0 // Convert mW to mA (approximation)
 }
 
-function calculateLifespan(healthPercentage, cycleCount) {
+function calculateLifespan(healthPercentage: number, cycleCount: number): number {
   // Simple estimation based on health percentage and cycle count
   // In a real implementation, this would be more sophisticated
   if (cycleCount > 800) return 0.5
@@ -277,4 +277,3 @@ export async function GET() {
     return NextResponse.json(await getBrowserFallbackData())
   }
 }
-

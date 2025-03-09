@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: "Batt",
     description: "Maximizing Your Batter Life",
     images: [{
-      url: 'https://batt-gilt.vercel.app/batt.jpg',
+      url: 'https://batt-gilt.vercel.app/og-image.jpg',
       width: 1200,
       height: 630,
     }],
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Batt",
     description: "Maximizing Your Battery Life 🚀",
-    images: ['http://batt-gilt.vercel.app/batt.jpg'],
+    images: ['http://batt-gilt.vercel.app/og-image.jpg'],
   },
 };
 
